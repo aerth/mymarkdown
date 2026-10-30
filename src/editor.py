@@ -553,6 +553,7 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
             markdown_text = self.buffer.get_text(start_iter, end_iter, False)
 
         if self.pygments_css is None:
+            print("setting up pygments css")
             self._setup_pygments_css()
 
         html_content = self.markdown_converter.convert(markdown_text)
