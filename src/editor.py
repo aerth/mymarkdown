@@ -616,6 +616,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         </body>
         </html>
         """
+        if self.webview is None:
+            return GLib.SOURCE_REMOVE
         self.webview.load_html(full_html_content, "file:///")
         return GLib.SOURCE_REMOVE  # Required for GLib.idle_add (removed after execution)
 
