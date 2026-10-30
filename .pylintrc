@@ -1,0 +1,4 @@
+[MASTER]
+# List of package or module names from which to load extensions (plugins).
+# This is crucial for dynamically loaded modules like those from gi.repository
+extension-pkg-whitelist=gi

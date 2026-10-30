@@ -1,0 +1,14 @@
+.i*
+.e*
+*.tmp
+*.log
+tmp
+*.key
+*.pem
+*.cert
+*.crt
+notes.md
+.*.tags.*
+.*tags
+TESTER.md
+__pycache__

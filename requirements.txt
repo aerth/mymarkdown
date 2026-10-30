@@ -1,0 +1,6 @@
+markdown
+requests
+Pygments
+numpy
+scikit-learn
+PyGObject
