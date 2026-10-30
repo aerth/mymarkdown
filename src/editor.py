@@ -460,6 +460,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         # 1. Handle acceptance of completion (Ctrl+I or Tab) when a preview is active
         if has_active_preview and \
                 ((event.keyval == Gdk.KEY_Tab) or \
+                (event.keyval == Gdk.KEY_Space) or \
+                (event.keyval == Gdk.KEY_Enter) or \
                  (event.keyval == Gdk.KEY_i and event.state & Gdk.ModifierType.CONTROL_MASK)):
             self._accept_completion()
             return True  # Event handled (completion accepted)
