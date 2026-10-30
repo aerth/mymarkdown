@@ -1214,7 +1214,7 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
             # Place this *after* RAG context to keep the RAG context at the top.
             effective_system_prompt += f"\n\nNote: The document continues with: '{suffix_text}'"
 
-        if self.verbose_logging_enabled:
+        if False and self.verbose_logging_enabled:
             print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] \n--- LLM Request Details START ---")
             print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Model: {model}")
             if retrieved_context:
