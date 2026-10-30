@@ -623,6 +623,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
 
     def _trigger_highlight_update(self):  # NEW METHOD
         """Called by timeout to trigger a syntax highlighting update."""
+        if self.buffer is None:
+            return GLib.SOURCE_REMOVE
         self.highlight_timeout_id = None  # Reset timeout ID
         GLib.idle_add(self.buffer.highlight_syntax)  # Call highlight_syntax on the main UI thread
         return GLib.SOURCE_REMOVE  # Ensure the timeout is only called once
