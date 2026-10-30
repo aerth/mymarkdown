@@ -705,6 +705,7 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         accepted_text = self.buffer.get_text(start_iter, end_iter, False)
         # If the preview is empty for some reason, just clean it up.
         if not accepted_text:
+            println("not accepted, will cancel")
             self._cancel_pending_completion_request()
             return
 
