@@ -445,7 +445,7 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
     def on_key_press(self, widget, event):
         """Handles key press events for the text view."""
 
-        has_active_preview = self.buffer.completion_start_mark and self.buffer.completion_end_mark
+        has_active_preview = self.buffer is not None and self.buffer.completion_start_mark and self.buffer.completion_end_mark
         is_modifier_key = (
                 event.keyval in [Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R,
                                  Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R]
