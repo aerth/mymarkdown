@@ -693,6 +693,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         self._update_status("Completion cancelled.", 3000) # NEW
 
     def _accept_completion(self):
+        if self.buffer is None:
+            return
         """Accepts the currently displayed AI completion text, making it part of the main document."""
         # If there's no active completion preview, do nothing.
         if not (self.buffer.completion_start_mark and self.buffer.completion_end_mark):
@@ -705,7 +707,7 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         accepted_text = self.buffer.get_text(start_iter, end_iter, False)
         # If the preview is empty for some reason, just clean it up.
         if not accepted_text:
-            println("not accepted, will cancel")
+            print("not accepted, will cancel")
             self._cancel_pending_completion_request()
             return
 
