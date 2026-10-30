@@ -738,8 +738,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         self.buffer.completion_start_mark = None
         self.buffer.completion_end_mark = None
 
-        # 5. Trigger a new completion request from the new cursor position.
-        self.trigger_completion()
+        # 5. Set suppression flag to wait for user to type more text before triggering a new completion.
+        self._suppress_next_completion_trigger = True
         self._update_status("Completion accepted.", 3000) # NEW
 
     def _set_display_mode_raw(self):
