@@ -532,6 +532,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         """Called by timeout to trigger a rendered view update if in rendered mode."""
         self.render_timeout_id = None  # Reset timeout ID
 
+        if self.buffer is None:
+            return False
         if self.current_view_mode in ["rendered", "side-by-side"]:
             # Get current text on the UI thread and schedule the actual update
             start_iter = self.buffer.get_start_iter()
@@ -541,6 +543,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         return False  # Ensure the timeout is only called once
 
     def _update_rendered_view(self, markdown_text=None):
+        if self.buffer is None:
+            return False
         """Converts markdown to HTML and displays it in the webview.
         Can be called with specific text or will fetch from current buffer."""
         if markdown_text is None:
