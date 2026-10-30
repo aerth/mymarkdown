@@ -497,6 +497,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
             return False
 
         # Get the current text
+        if self.buffer is None:
+            return False
         insert_iter = self.buffer.get_iter_at_mark(self.buffer.get_insert())
         start_iter = self.buffer.get_start_iter()
         end_iter = self.buffer.get_end_iter()
