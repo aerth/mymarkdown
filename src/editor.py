@@ -1395,6 +1395,8 @@ class MyMarkdownEditor(Gtk.ApplicationWindow):
         if not text_to_insert:
             return False
 
+        if self.buffer is None:
+            return False
         # Ensure any existing preview is cleared first
         self._cleanup_completion_preview_safe()
 
